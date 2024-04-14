@@ -1,0 +1,181 @@
+<app-form [isLoading]="isLoading" [addForm]="true" return_link="/dashboard/offices" [myForm]="myForm" (onSubmitEvent)="onSubmit()"></app-form>
+
+<!--
+<div class="bg">
+    <div class="container ">
+
+
+        <h2 class="text-center pt-5">إضافة المكتب</h2>
+
+        &lt;!&ndash; card 1&ndash;&gt;
+        <div class="card shadow1 mt-5 ">
+            <div class="card-body">
+                <h4 class="card-title text-center ">معلومات عن المكتب</h4>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="dis">
+                            <p>إسم المكتب</p>
+                            <input type="text"
+                                   [ngClass]="!bureau.name && verife?'form-control error-border':'form-control' "
+                                   [(ngModel)]="bureau.name" required>
+                        </div>
+                        <div *ngIf="!bureau.name && verife" class="msg_error text-center mt-0">
+                            إسم المكتب إجباري *
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="dis">
+                            <label> عنوان المكتب</label>
+                            <input type="text"
+                                   [ngClass]="!bureau.address && verife?'form-control error-border':'form-control' "
+                                   [(ngModel)]="bureau.address" required>
+                        </div>
+                        <div *ngIf="!bureau.address && verife" class="msg_error text-center mt-0">
+                            عنوان المكتب إجباري *
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="dis">
+                            <label>رقم الهاتف </label>
+                            <input type="text"
+                                   [ngClass]="!bureau.phone && verife?'form-control error-border':'form-control' "
+                                   [(ngModel)]="bureau.phone" required>
+                        </div>
+                        <div *ngIf="!bureau.phone && verife" class="msg_error text-center mt-0">
+                            رقم الهاتف إجباري *
+                        </div>
+                    </div>
+
+                </div>
+
+
+                &lt;!&ndash;ligne 3&ndash;&gt;
+
+
+            </div>
+
+        </div>
+        <div class="card shadow1 mt-5 ">
+            <div class="card-body">
+                <h4 class="card-title text-center ">معلومات عن مدير المكتب </h4>
+                <div class="row">
+
+
+                    <div class="col-6">
+                        <div class="dis">
+                            <label> إسم المستخدم </label>
+                            <input type="text"
+                                   [ngClass]="!director.username && verife?'form-control error-border':'form-control' "
+                                   [(ngModel)]="director.username"/>
+                        </div>
+                        <div *ngIf="!director.username && verife" class="msg_error text-center mt-0">
+                            إسم المستخدم إجباري *
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="dis">
+                            <p> كلمة المرور </p>
+                            <input type="text" [ngClass]="!director.password && verife?'form-control error-border':'form-control' " [(ngModel)]="director.password"/>
+                        </div>
+                        <div *ngIf="!director.password && verife" class="msg_error text-center mt-0">
+                            كلمة المرور إجبارية *
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="dis">
+                            <p> رقم الهاتف </p>
+                            <input type="tel" [ngClass]="!director.phone && verife?'form-control error-border':'form-control' " [(ngModel)]="director.phone"/>
+                        </div>
+                        <div *ngIf="!director.phone && verife" class="msg_error text-center mt-0">
+                            رقم الهاتف إجباري *
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="dis">
+                            <p> عنوان المستخدم </p>
+                            <input type="text" [ngClass]="!director.address && verife?'form-control error-border':'form-control' " [(ngModel)]="director.address" style="width: 50%;"/>
+                        </div>
+                        <div *ngIf="!director.address && verife" class="msg_error text-center mt-0">
+                            عنوان المستخدم إجباري *
+                        </div>
+                    </div>
+
+                </div>
+
+
+                &lt;!&ndash;ligne 3&ndash;&gt;
+
+            </div>
+
+        </div>
+
+        &lt;!&ndash; card &ndash;&gt;
+        <div class="card shadow1 mt-5 ">
+            <div class="card-body">
+                <h4 class="card-title text-center ">نسبة الربح </h4>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="dis">
+                            <p>إجباري</p>
+                            <input type="number" [ngClass]="!bureau.gain_precentage_oblig && verife?'form-control error-border':'form-control' " style="width: 40%;"
+                                   [(ngModel)]="bureau.gain_precentage_oblig" [value]="bureau.gain_precentage_oblig"/>
+                        </div>
+                        <div *ngIf="!bureau.gain_precentage_oblig && verife" class="msg_error text-center mt-0">
+                            نسبة الربح للتامين الإجباري إجباري *
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="dis">
+                            <p>طرف ثالث </p>
+
+                            <input type="number" [ngClass]="!bureau.gain_precentage_third && verife?'form-control error-border':'form-control' " style="width: 40%;"
+                                   [(ngModel)]="bureau.gain_precentage_third" [value]="bureau.gain_precentage_third"/>
+                        </div>
+                        <div *ngIf="!bureau.gain_precentage_third && verife" class="msg_error text-center mt-0">
+                            نسبة الربح للتامين الطرف ثالث إجباري *
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="dis">
+                            <p> تأمين صحي </p>
+                            <input type="number" [ngClass]="!bureau.gain_precentage_sante && verife?'form-control error-border':'form-control' " style="width: 40%;"
+                                   [(ngModel)]="bureau.gain_precentage_sante" [value]="bureau.gain_precentage_sante"/>
+                        </div>
+                        <div *ngIf="!bureau.gain_precentage_sante && verife" class="msg_error text-center mt-0">
+                            نسبة الربح للتامين الصحي إجباري *
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="dis">
+                            <p>مسافرين</p>
+                            <input type="number" [ngClass]="!bureau.gain_precentage_travel && verife?'form-control error-border':'form-control' " style="width: 40%;"
+                                   [(ngModel)]="bureau.gain_precentage_travel" [value]="bureau.gain_precentage_travel"/>
+                        </div>
+                        <div *ngIf="!bureau.gain_precentage_travel && verife" class="msg_error text-center mt-0">
+                            نسبة الربح لتامين المسافرين إجباري *
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="dis">
+                <button type="button" class="button b1" (click)="OnRecuper()">إضافة <i class="fa-solid fa-plus"
+                                                                                       style="color: #ffffff;"></i>
+                </button>
+                <button type="button" class="button b3" routerLink="/dashboard/offices">إلغاء <i
+                        class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+-->

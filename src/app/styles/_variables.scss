@@ -1,0 +1,129 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@include mat.core();
+
+$colors: (
+  "primary":#063b88,
+  "error":#DA0000,
+
+  button:(
+    "focused":#E5F1FF,
+    "hover": #818181,
+  ),
+  input : (
+    "placeholder":#F1F1F1,
+    "border":#C8CCCF,
+  ),
+  icons:(
+    "color":#A4B4CB,
+  ),
+  statutBadge:(
+    active:(
+      "background": #078549,
+      "text": white
+    ),
+    inactive:(
+      "background": #DA0000,
+      "text": white
+    ),
+    disponible:(
+      "background": rgba(253,241,226,50%),
+      "text": #FFB648,
+    ),
+    indisponible:(
+      "background": rgba(223,226,234,50%),
+      "text": #14171F
+    ),
+
+    waiting:(
+      "background": rgba(255,228,214,50%),
+      "text": #FF7366
+    ),
+    in-progress:(
+      "background": rgba(209,228,254,40%),
+      "text": #0177FD
+    ),
+    finished:(
+      "background": rgba(216,255,214,50%),
+      "text": #00BC39
+    ),
+    en-panne:(
+      "background": rgba(255,228,214,50%),
+      "text": #FF7366
+    ),
+    en-traitement:(
+      "background": rgba(255,252,214,50%),
+      "text": #F8D959
+    ),
+    bonne:(
+      "background": rgba(216,255,214,50%),
+      "text": #00BC39
+    ),
+    ot-in-progress:(
+      "background": rgba(209,228,254,40%),
+      "text": #0177FD
+    ),
+    ot-finished:(
+      "background": rgba(216,255,214,50%),
+      "text": #00BC39
+    ),
+    inter-half-finished:(
+      "background": rgba(255,247,204,100%),
+      "text":#B77F00
+    ),
+    inter-finished:(
+      "background": rgba(216,255,214,50%),
+      "text": #00BC39
+    ),
+
+  ),
+
+
+  "text":#2A2A21,
+  "line":#E8ECF5,
+  "secondary":#4B506D,
+  "third": #F7F7F9,
+  "fourth":#C5C7CD,
+
+  "background":#F0F0F0,
+
+);
+
+$fonts: (
+  "poppins-semi-bold" : (Poppins,sans-serif,800),
+  "poppins-medium" : (Poppins,sans-serif)
+
+);
+
+$bright-navy-blue-palette: (
+  50: #e3f2fd,
+  100: #badffb,
+  200: #8fcbfa,
+  300: #61b7f7,
+  400: #3ca7f6,
+  500: #0c98f5,
+  600: #078ae7,
+  700: #0078d4,
+  800: #0067c2,
+  900: #063b88,
+  A100: #c2e4ff,
+  A200: #addcff,
+  A400: #1f9eff,
+  A700: #00518f,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: white,
+    A700: white,
+  )
+);

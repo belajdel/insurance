@@ -1,0 +1,80 @@
+<div class="bg pt-5  ">
+    <div class="container ">
+
+     <!-- card 1-->
+     <div class="card shadow1 mt-5 ">
+        <div class="card-body">
+          <h4 class="card-title text-center ">   مطلب إستخلاص مديونية</h4>
+    <div class="row">
+
+
+
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ الجملي            </label>
+            <input type="number" class="form-control"   [(ngModel)]="debt.total" readonly/>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ المدفوع            </label>
+            <input type="number" class="form-control"   [(ngModel)]="debt.paidAmount" (ngModelChange)="calculer_reste()"/>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ المتبقي</label>
+            <input type="number" class="form-control"   [(ngModel)]="debt.remainingAmount" readonly/>
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="dis"  >
+
+            <label>الوثيقة البنكية   </label>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="exampleFormControlFile1">
+              </div>
+            </div>
+        </div>
+
+
+    <div class="row">
+
+        <div class="col-12">
+            <div class="dis">
+            <p>    تاريخ ما بين </p>
+                <input type="date" class="form-control"   [(ngModel)]="debt.startDate" readonly/>
+
+                الى التاريخ
+                <input type="date" class="form-control" [(ngModel)]="debt.endDate" readonly/>
+                </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="dis ">
+            <button type="button" class="button b1" (click)="addPayment()" >إضافة  <i class="fa-solid fa-plus" style="color: #ffffff;"></i>  </button>
+            <button type="button" class="button b3" routerLink="/dashboard">إلغاء  <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>   </button>
+    </div>
+    </div>
+    </div>
+    <!--ligne 3-->
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+    </div>
+

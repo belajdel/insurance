@@ -1,0 +1,179 @@
+<!-- card 1-->
+<div class="card shadow1 mt-5 ">
+  <div class="card-body">
+    <h4 class="card-title text-center ">معلومات عن التأمين </h4>
+    <div class="row">
+
+      <div class="col-4">
+        <div class="dis">
+          <label>نوعية التأمين </label>
+          <select class="form-select" [(ngModel)]="santeComponent.assurance_type"
+                  [ngClass]="!santeComponent.assurance_type && verife ? 'form-select error-border' : 'form-select' ">
+            <option selected value="صحي مجموعات">مجموعات</option>
+            <option value="صحي فرد">فرد</option>
+
+          </select>
+
+        </div>
+
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <label>فترة التأمين </label>
+          <select class="form-select" [(ngModel)]="periode" (change)="changeroption1()">
+
+            <option selected value="سنة">سنة</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+
+
+        <div class="col-12">
+          <div class="dis">
+            <p> التغطية من </p>
+            <input type="date" class="form-control" [(ngModel)]="startDate" (change)="changeroption1()"/>
+
+            إلى
+            <input type="date" class="form-control" [(ngModel)]="endDate" disabled/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--ligne 3-->
+
+    <div class="row">
+
+
+    </div>
+  </div>
+
+</div>
+<!-- car detaile -->
+<div class="card 1 mt-5 ">
+  <div class="card-body">
+    <h4 class="card-title text-center ">  {{info}}     </h4>
+    <div class="row">
+      <div class="col-4">
+        <div class="dis">
+
+          <p>  {{non_info}}  </p>
+          <input type="text" [ngClass]="!assuranceGroupe.name && verife ? 'form-control error-border' : 'form-control' " [(ngModel)]="assuranceGroupe.name"/>
+        </div>
+        <div *ngIf="!assuranceGroupe.name  && verife" class="msg_error text-center mt-0">
+          *  {{non_info}}  إجباري
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p> رقم الهاتف</p>
+          <input type="text"
+                 [ngClass]="!assuranceGroupe.numero_tele && verife ? 'form-control error-border' : 'form-control' "
+                 [(ngModel)]="assuranceGroupe.numero_tele"/>
+        </div>
+        <div *ngIf="!assuranceGroupe.numero_tele && verife" class="msg_error text-center mt-0">
+          * رقم الهاتف إجباري
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p> العنوان</p>
+          <input type="text"
+                 [ngClass]="!assuranceGroupe.address && verife ? 'form-control error-border' : 'form-control' "
+                 [(ngModel)]="assuranceGroupe.address"/>
+        </div>
+        <div *ngIf="!assuranceGroupe.address  && verife" class="msg_error text-center mt-0">
+          * العنوان إجباري
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="dis">
+          <p> طريقة الدفع </p>
+          <select class="form-select" [(ngModel)]="assuranceGroupe.methode_paiement"
+                  [ngClass]="!assuranceGroupe.methode_paiement && verife ? 'form-select error-border' : 'form-select' ">
+            <option selected value="نقدا">نقدا</option>
+            <option selected value="على الحساب">على الحساب</option>
+
+          </select>
+        </div>
+        <div *ngIf="!assuranceGroupe.methode_paiement  && verife" class="msg_error text-center mt-0">
+          * طريقة الدفع إجباري
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p> قيمة التأمين </p>
+          <input type="number" class="form-control" [(ngModel)]="assuranceGroupe.capital_societe"
+                 (change)="CalculTaxeSociete()"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="card shadow1 mt-5 ">
+  <div class="card-body">
+    <h4 class="card-title text-center ">حساب الضرائب </h4>
+
+    <div class="row">
+      <div class="col-4">
+        <div class="dis">
+          <p>قيمة القسط </p>
+          <input type="number" class="form-control" style="width: 40%;" [(ngModel)]="assuranceGroupe.tranche"/>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p>القسط الصافي</p>
+          <input type="number" class="form-control" style="width: 40%;" [(ngModel)]="assuranceGroupe.initial"/>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="dis">
+          <p>الضريبة</p>
+
+          <input type="number" class="form-control" [(ngModel)]="assuranceGroupe.taxe1" style="width: 40%;"
+                 [value]="assuranceGroupe.taxe1"/>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p>الدمغة</p>
+          <input type="number" class="form-control" [(ngModel)]="assuranceGroupe.taxe2" style="width: 40%;"
+                 [value]="assuranceGroupe.taxe2"/>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p>م الإصدار</p>
+          <input type="number" class="form-control" [(ngModel)]="assuranceGroupe.taxe4" style="width: 40%;"
+                 [value]="assuranceGroupe.taxe4"/>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="dis">
+          <p>الإجمالي</p>
+          <input type="number" class="form-control" [(ngModel)]="assuranceGroupe.total" style="width: 40%;"
+                 [value]="assuranceGroupe.total"/>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="dis">
+    <button type="button" class="button b1" (click)="OnRecuper()">إضافة <i class="fa-solid fa-plus"
+                                                                           style="color: #ffffff;"></i></button>
+    <button type="button" class="button b2">طباعة<i class="fa-solid fa-download" style="color: #ffffff;"></i></button>
+    <button type="button" class="button b3" routerLink="/dashboard">إلغاء <i class="fa-solid fa-right-from-bracket"
+                                                                             style="color: #ffffff;"></i></button>
+  </div>
+</div>
+

@@ -1,0 +1,59 @@
+@import '../../../styles/variables';
+
+
+.options {
+  background-color: map-get($colors, "button", "focused") !important;
+  border-radius: 10px;
+  height: 270px;
+  width: 370px;
+  box-shadow: 0 14.625px 80.4375px -21.9375px rgba(43, 37, 37, 0.12);
+  //overflow:hidden;
+
+  .mat-dialog-title {
+    font-family: 'Public Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-dialog-content {
+    color: rgba(21, 25, 32, 0.5);
+    font-family: 'Public Sans', sans-serif;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-mdc-dialog-actions {
+    justify-content: center ;
+    margin-top: 20px;
+    gap: 10px;
+    button {
+      width: 270px;
+      height: 45px;
+      border-radius: 10px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      /*color: white;
+
+
+      margin-bottom: 10px;*/
+    }
+
+    .yes {
+      //background-color: map-get($colors, "primary");
+    }
+
+    .no {
+      //color: black;
+      //border: 1px solid rgba(86, 103, 137, 0.26);
+    }
+
+    button:hover {
+      //box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(50, 50, 71, 0.006);
+      //transition: all 0.5s ease;
+      //border: none;
+
+    }
+  }
+}
+

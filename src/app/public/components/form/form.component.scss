@@ -1,0 +1,31 @@
+@use "sass:math";
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .mat-mdc-card {
+    padding: 30px 8%;
+    box-shadow: 0 14.625px 80.4375px -21.9375px rgba(43, 37, 37, 0.12);
+    .mat-mdc-card-header {
+      justify-content: center;
+      .mat-mdc-card-title {
+        font-size: 15px;
+      }
+    }
+    .mat-mdc-card-content {
+      margin: 50px 0 0;
+      display: grid;
+      grid-gap: 10%;
+
+    }
+  }
+
+  .actions{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%/2, max(64px, 100%/5)), 1fr));
+    grid-gap: 5%;
+    width: 100%;
+  }
+}
+

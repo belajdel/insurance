@@ -1,0 +1,52 @@
+<form [formGroup]="myForm.formGroup" (submit)="onSubmit()">
+  <mat-card *ngFor="let card of myForm.cards">
+    <mat-card-header>
+      <mat-card-title>{{card.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content [style]="'grid-template-columns:repeat('+( (card.fields.length == 4) ? 2 : 3 )+',1fr)'">
+      <mat-form-field *ngFor="let form of card.fields" class="example-full-width" [hidden]="form.hidden">
+        <mat-label>{{form.label}}</mat-label>
+        <input *ngIf="form.type !== 'select'" [type]="form.type" matInput [formControlName]="form.formControlName"
+               [readonly]="form.readonly">
+        <mat-icon *ngIf="form.preffix_icon" matPrefix>{{form.preffix_icon}}</mat-icon>
+        <mat-icon *ngIf="form.readonly" matSuffix>hide_source</mat-icon>
+        <!--<mat-icon *ngIf="form.isPassword && form.showPassword" matSuffix (click)="form?.showPassword">{{form?.suffix_icon}}</mat-icon>-->
+        <mat-select *ngIf="form.type==='select'" [formControlName]="form.formControlName">
+          <mat-option [disabled]="form.readonly">--</mat-option>
+          <mat-option *ngFor="let op of form.select.selectOptions" [disabled]="form.readonly"
+                      [value]="form.select.isObject ? op.id : op">{{form.select.isObject ? op.name : op}}</mat-option>
+        </mat-select>
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('required') ) {
+        <mat-error>{{form.label}}<strong> اجباري</strong></mat-error>
+        }
+        @if(form.type!=='select'){
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('email')) {
+        <mat-error>{{form.errorsMessages?.email}}</mat-error>
+        }
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('matching')) {
+        <mat-error>{{form.errorsMessages?.matching}}</mat-error>
+        }
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('max')) {
+        <mat-error>{{form.errorsMessages?.max}}</mat-error>
+        }
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('min')) {
+        <mat-error>{{form.errorsMessages?.min}}</mat-error>
+        }
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('maxlength')) {
+        <mat-error>{{form.errorsMessages?.maxLength}}</mat-error>
+        }
+        @if (this.myForm.formGroup.get(form.formControlName)?.hasError('minlength')) {
+        <mat-error>{{form.errorsMessages?.minLength}}</mat-error>
+        }
+        }
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+  <div class="actions">
+    <mat-loading-button [color]="addForm ? 'primary' : 'accent'" [label]="addForm ? 'إضافة' : 'تعديل'"
+                        classlist="add-update-button" [isLoading]="isLoading" [icon]="addForm ? 'add' : 'border_color'"
+                        type="submit"></mat-loading-button>
+    <mat-loading-button color="warn" label="إلغاء" classlist="cancel-button" icon="keyboard_return"
+                        [routerLink]="return_link"></mat-loading-button>
+  </div>
+</form>

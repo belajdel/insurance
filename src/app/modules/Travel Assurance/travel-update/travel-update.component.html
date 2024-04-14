@@ -1,0 +1,242 @@
+<div class="bg">
+  <div class="container ">
+
+
+
+    <h2 class="text-center pt-5">إضافة تأمين المسافرين</h2>
+
+    <!-- card 1-->
+    <div class="card shadow1 mt-5 ">
+      <div class="card-body">
+        <h4 class="card-title text-center ">معلومات عن التأمين    </h4>
+        <div class="row">
+
+          <div class="col-4">
+            <div class="dis">
+              <label>منطقة التغطية            </label>
+              <select [ngClass]="!travel.zone_couver && verife?'form-select error-border':'form-select' " [(ngModel)]="travel.zone_couver" (change)="CalculTaxe()" >
+
+                <option selected value="European Countries">European Countries</option>
+                <option selected value="Word Wide Except USA & Canada">Word Wide Except USA & Canada</option>
+
+              </select>
+
+            </div>
+            <div *ngIf="!travel.zone_couver  && verife" class="msg_error text-center mt-0">
+              * منطقة التغطية إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <label>فترة التأمين   </label>
+
+              <select [ngClass]="!travel.periode && verife?'form-select error-border':'form-select' "  [(ngModel)]="travel.periode" (change)="changeroption1()">
+                <option selected value="Five Days">Five Days </option>
+                <option selected value="One Week"> One Week</option>
+                <option selected value="Ten Days">Ten Days </option>
+                <option selected value="Two Weeks"> Two Weeks</option>
+                <option selected value="Three Weeks">Three Weeks </option>
+                <option selected value="One Month">One Month </option>
+                <option selected value="Two Months"> Two Months</option>
+                <option selected value="Three Months"> Three Months</option>
+                <option selected value="Six Months">Six Months </option>
+                <option selected value="One Year">One Year </option>
+                <option selected value="Two Years">Two Years </option>
+              </select>
+            </div>
+            <div *ngIf="!travel.periode  && verife" class="msg_error text-center mt-0">
+              * فترة التأمين إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>   الوجهة </p>
+              <select [(ngModel)]="travel.direction" [ngClass]="(!travel.direction || travel.direction==='إختر الوجهة') && verife?'form-select error-border':'form-select' ">
+                <option style="font-weight: bold">إختر الوجهة</option>
+                <option *ngFor="let country of pays" [value]="country">{{ country }}</option>
+              </select>
+            </div>
+            <div *ngIf="(!travel.direction || travel.direction==='إختر الوجهة')  && verife" class="msg_error text-center mt-0">
+              * الوجهة إجباري
+            </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col-12">
+              <div class="dis">
+                <p>   التغطية من  </p>
+                <input type="date" class="form-control"   [(ngModel)]="startDate" (change)="changeroption1()"/>
+
+                إلى
+                <input type="date" class="form-control" [(ngModel)]="endDate" disabled/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--ligne 3-->
+
+        <div class="row">
+
+
+        </div>
+      </div>
+
+    </div>
+    <!-- car detaile -->
+    <div class="card 1 mt-5 ">
+      <div class="card-body">
+        <h4 class="card-title text-center ">معلومات عن المؤمن    </h4>
+        <div class="row">
+          <div class="col-4">
+            <div class="dis">
+              <p>   إسم المؤمن  </p>
+              <input type="text" class="form-control" [(ngModel)]="travel.name" [ngClass]="!travel.name && verife?'form-control error-border':'form-control' "/>
+
+            </div>
+            <div *ngIf="!travel.name  && verife" class="msg_error text-center mt-0">
+              *  إسم المؤمن  إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>  تاريخ الميلاد   </p>
+              <input type="date" [ngClass]="!birthDate && verife?'form-control error-border':'form-control' " [(ngModel)]="birthDate" style="width: 50%;"  (change)="calculeAge()" />
+            </div>
+            <div *ngIf="!birthDate  && verife" class="msg_error text-center mt-0">
+              *  تاريخ الميلاد إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>        الجنسية       </p>
+              <select [(ngModel)]="travel.nationalite" [ngClass]="(!travel.nationalite || travel.nationalite==='إختر الجنسية') && verife?'form-select error-border':'form-select' ">
+                <option style="font-weight: bold">إختر الجنسية</option>
+                <option *ngFor="let country of pays" [value]="country">{{ country }}</option>
+              </select>
+
+            </div>
+            <div *ngIf="(!travel.nationalite || travel.nationalite==='إختر الجنسية')  && verife" class="msg_error text-center mt-0">
+              *   الجنسية إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>الجنس</p>
+              <select [ngClass]="(!travel.m_f || travel.m_f==='إختر الجنس') && verife?'form-select error-border':'form-select' "  [(ngModel)]="travel.m_f"  >
+                <option style="font-weight: bold">إختر الجنس</option>
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+              </select>
+            </div>
+            <div *ngIf="(!travel.m_f || travel.m_f==='إختر الجنس')  && verife" class="msg_error text-center mt-0">
+              *   الجنس إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>رقم جواز السفر </p>
+
+              <input type="text" [ngClass]="!travel.numero_passport && verife?'form-control error-border':'form-control' "   [(ngModel)]="travel.numero_passport"/>
+            </div>
+            <div *ngIf="!travel.numero_passport  && verife" class="msg_error text-center mt-0">
+              *   رقم جواز السفر إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>       رقم الهاتف </p>
+              <input type="text" [ngClass]="!travel.numero_tele && verife?'form-control error-border':'form-control' "  [(ngModel)]="travel.numero_tele" />
+            </div>
+            <div *ngIf="!travel.numero_tele  && verife" class="msg_error text-center mt-0">
+              *    رقم الهاتف إجباري
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>        العنوان</p>
+              <input type="text" [ngClass]="!travel.address && verife?'form-control error-border':'form-control' " [(ngModel)]="travel.address"/>
+            </div>
+            <div *ngIf="!travel.address  && verife" class="msg_error text-center mt-0">
+              *    العنوان إجباري
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="dis">
+              <p>        طريقة الدفع </p>
+              <select [ngClass]="!travel.methode_paiement && verife?'form-select error-border':'form-select' " [(ngModel)]="travel.methode_paiement">
+                <option selected value="نقدا">نقدا</option>
+                <option selected value="على الحساب">على الحساب</option>
+
+              </select>
+            </div>
+            <div *ngIf="!travel.methode_paiement  && verife" class="msg_error text-center mt-0">
+              *   طريقة الدفع إجباري
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow1 mt-5 ">
+      <div class="card-body">
+        <h4 class="card-title text-center ">حساب الضرائب    </h4>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="dis">
+              <p>القسط الصافي</p>
+              <input type="number" class="form-control"  style="width: 40%;" [(ngModel)]="travel.initial"/>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>الضريبة</p>
+
+              <input type="number" class="form-control" style="width: 40%;" [value]="travel.taxe1"/>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>الدمغة</p>
+              <input type="number" class="form-control" style="width: 40%;"  [value]="travel.taxe2"/>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>الإشراف و الرقابة</p>
+              <input type="number" class="form-control" style="width: 40%;" [value]="travel.taxe3"/>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>م الإصدار</p>
+              <input type="number" class="form-control" style="width: 40%;" [value]="travel.taxe4"/>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="dis">
+              <p>الإجمالي</p>
+              <input type="number" class="form-control" style="width: 40%;" [value]="travel.total"/>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="dis">
+        <button type="button" class="button b1" (click)="OnRecuper()" >إضافة  <i class="fa-solid fa-plus" style="color: #ffffff;"></i>  </button>
+        <button type="button" class="button b2">طباعة   <i class="fa-solid fa-download" style="color: #ffffff;"></i> </button>
+        <button type="button" class="button b3" routerLink="/dashboard">إلغاء  <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>  </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

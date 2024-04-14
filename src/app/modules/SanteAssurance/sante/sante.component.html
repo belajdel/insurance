@@ -1,0 +1,12 @@
+<div class="bg">
+  <div class="container" *ngIf="assurance_type==='صحي فرد'">
+    <h2 class="text-center pt-5">إضافة مسؤلية صحية </h2>
+
+    <app-add-assurance-sante-personne></app-add-assurance-sante-personne>
+  </div>
+  <div class="container" *ngIf="assurance_type==='صحي مجموعات'">
+    <h2 class="text-center pt-5">إضافة مسؤلية صحية </h2>
+
+    <app-add-assurance-sante-groupe></app-add-assurance-sante-groupe>
+  </div>
+</div>

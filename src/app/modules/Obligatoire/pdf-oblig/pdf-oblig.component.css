@@ -1,0 +1,74 @@
+#content{
+    height:3508  ;
+    width: 2480 ;
+}
+.around{
+    display: flex;
+    justify-content: space-between;
+}
+.dis{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-control{
+    padding-left: 10px;
+    /*padding-top: 15px;
+    padding-bottom: 15px;*/
+    resize: none;
+    border-style:solid;
+    width: 50%;
+    display: inline;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+p{
+    font-size: 30px;
+}
+h1{
+    color:#3a86ff;
+}
+.ps1{
+    position: absolute;
+    top :44%;
+    right: 35%;
+}
+.ps2{
+    position: absolute;
+    top:110%;
+}
+.ps3 {
+    position: absolute;
+    top:125%;
+}
+.ps4{
+    position: absolute;
+    top:167%;
+
+}
+.ps5{
+    position: absolute;
+    top:183%;
+
+}
+.ps6{
+    position: absolute;
+    top:198%;
+
+}
+
+.ps7 {
+    position: absolute;
+    top:214%;
+}
+
+.ps8 {
+    position: absolute;
+    top:228%;
+}
+
+
+p{
+    font-size: 23px;
+}

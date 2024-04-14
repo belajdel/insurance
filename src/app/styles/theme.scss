@@ -1,0 +1,76 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@include mat.core();
+@import '_variables.scss';
+
+
+$my-primary: mat.define-palette($bright-navy-blue-palette, 900);
+$my-accent: mat.define-palette(mat.$yellow-palette, 700);
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette, 500);
+//$my-error: mat.define-palette(mat.$yellow-palette);
+
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  ),
+  density: 0,
+));
+
+//@include mat.all-component-themes($my-theme);
+@include mat.all-component-themes($my-theme);
+
+
+/*.mat-mdc-form-field {
+  //width: 480px;
+  //height: 50px;
+  //font-size: 15px;
+  //margin-bottom: 60px;
+  !*.mat-form-field-outline-gap,.mat-form-field-outline-end,.mat-form-field-outline-start{
+    background-color: map.get($colors,"input","placeholder");
+  }*!
+  .mat-icon{
+    color: #0067c2;
+  }
+}*/
+
+
+.mat-focused {
+  .mat-mdc-form-field-icon-prefix,.mat-mdc-form-field-icon-suffix {
+    color: map-get($colors, "primary");
+  }
+}
+
+.mat-form-field-invalid {
+  .mat-mdc-form-field-icon-prefix,.mat-mdc-form-field-icon-suffix {
+    color: mat.get-theme-color($my-theme, "warn");
+  }
+
+}
+
+
+.ng-valid{
+  .mdc-notched-outline__leading,.mdc-notched-outline__notch,.mdc-notched-outline__trailing{
+    border-color: mat.get-color-from-palette(mat.$green-palette, 500) !important;
+  }
+  .mdc-line-ripple::before{
+    border-color: mat.get-color-from-palette(mat.$green-palette, 500) !important;
+  }
+  .mdc-floating-label,.mat-mdc-form-field-icon-prefix , .ng-valid .mat-mdc-form-field-icon-suffix{
+    color: mat.get-color-from-palette(mat.$green-palette, 500) !important;
+  }
+
+}
+
+
+
+
+
+
+
+
+

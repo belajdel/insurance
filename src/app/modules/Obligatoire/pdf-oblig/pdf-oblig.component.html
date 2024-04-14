@@ -1,0 +1,47 @@
+<div id="invoice_container" class=" ">
+ 
+   <div class="ps1">
+        <p>{{data[0].id}}</p>
+        <p>vernone1</p>
+        <p>vernone2</p>
+        <p>vernone2</p>
+        <p>{{date_now}}</p>
+
+    </div> 
+   
+        <p class="ps2" style="right: 25%;">{{data[0].startDate}}</p>
+        <p class="ps2" style="right: 50%;">{{data[0].endDate}}</p>
+        <p class="ps2" style="right: 92%;">{{data[0].name}}</p>
+
+        <p class="ps3" style="right: 23%;"> {{data[0].adresse}}     </p>
+        <p class="ps3" style="right: 75%;"> {{data[0].phone_number}}     </p>
+
+        <p class="ps4" style="right: 19%;"> {{data[0].type_car}}     </p>
+        <p class="ps4" style="right: 50%;"> {{data[0].numero_serie}}     </p>
+        <p class="ps4" style="right: 80%;"> {{data[0].numero_structure}}     </p>
+
+        <p class="ps5" style="right: 19%;"> {{data[0].numero_moteur}}     </p>
+        <p class="ps5" style="right: 50%;"> {{data[0].Charge}}     </p>
+        <p class="ps5" style="right: 80%;"> {{data[0].nb_passager}}     </p>
+
+
+        <p class="ps6" style="right: 19%;"> {{data[0].annee_de_fabrication}}     </p>
+        <p class="ps6" style="right: 50%;"> {{data[0].couleur}}     </p>
+        <p class="ps6" style="right: 80%;"> {{data[0].Pays_de_fabrication}}     </p>
+
+        <p class="ps7" style="right: 50%;"> {{data[0].Orga_de_delivr}}     </p>
+
+
+        <p class="ps8" style="right: 30%;"> <b>{{data[0].ttc}} LYD </b>   </p>
+        <p class="ps8" style="right: 30%;top:240%;"><b> 2 LYD </b>  </p>
+        <p class="ps8" style="right: 30%;top:255%;"> <b>{{data[0].ht}}LYD</b></p>
+
+        
+
+
+    <img src="assets\images\Frame.png" width="100%" height="auto" >
+    
+    
+ 
+  </div>
+  <button (click)="handleExport()">Generate PDF</button>

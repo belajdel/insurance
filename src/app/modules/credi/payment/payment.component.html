@@ -1,0 +1,73 @@
+<div class="bg pt-5  ">
+    <div class="container ">
+
+     <!-- card 1-->
+     <div class="card shadow1 mt-5 ">
+        <div class="card-body">
+          <h4 class="card-title text-center ">    إستخلاص مديونية</h4>
+    <div class="row">
+
+
+
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ الجملي</label>
+            <input type="number" class="form-control"   [(ngModel)]="total" readonly/>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ المدفوع            </label>
+            <input type="number" class="form-control"   [(ngModel)]="payer" (change)="calculer_rester()"/>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="dis"  >
+            <label>المبلغ المتبقي</label>
+            <input type="number" class="form-control"  [(ngModel)]="rester" readonly/>
+
+            </div>
+        </div>
+
+
+
+
+    <div class="row">
+
+
+        <div class="col-12">
+            <div class="dis">
+            <p>    تاريخ ما بين </p>
+                <input type="date" class="form-control"   [(ngModel)]="todayDate"/>
+
+                الى التاريخ
+                <input type="date" class="form-control" [(ngModel)]="afterDate" />
+                </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="dis ">
+            <button type="button" class="button b1" (click)="search()" >إستخلاص  <i class="fa-solid fa-plus" style="color: #ffffff;"></i>  </button>
+            <button type="button" class="button b3" routerLink="/dashboard">إلغاء  <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i>   </button>
+    </div>
+    </div>
+    </div>
+    <!--ligne 3-->
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    </div>
+
+    </div>
+

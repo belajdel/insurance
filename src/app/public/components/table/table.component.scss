@@ -1,0 +1,136 @@
+@import '../../../styles/_variables.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  .consult-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .search-box-hidden {
+      border-radius: 20px;
+      background-color: transparent;
+      padding: 0 10px 0 15px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      transition: all 0.5s ease-in;
+      width: fit-content;
+      -webkit-transition: -webkit-transform 1s, background 1s, border 1s;
+
+      .search-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 50%;
+
+        i {
+          color: map-get($colors, "primary");
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      .search-input {
+        height: 0;
+        width: 0;
+        padding: 0;
+        transition: width .5s ease-in-out;
+        border: none;
+      }
+    }
+
+    .search-box-showed {
+      border-radius: 20px;
+      background-color: white;
+      height: 45px;
+      width: fit-content;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      padding: 0 10px 0 15px;
+
+      .search-input {
+        height: 40px;
+        border: none;
+        display: block;
+        background: none;
+        outline: none;
+        padding: 0;
+        color: map-get($colors, "text");
+        font-size: 15px;
+        font-family: map-get($fonts, "poppins-semi-bold");
+        line-height: 30px;
+        width: 250px;
+        transition: width .5s ease-in-out;
+      }
+
+      .search-button {
+        background-color: map-get($colors, "background");
+        width: 30px;
+        height: 30px;
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 50%;
+
+        i {
+          color: map-get($colors, "primary");
+        }
+      }
+    }
+
+    .table-container {
+      border-radius: 8px;
+      box-shadow: 0 14.625px 80.4375px -21.9375px rgba(43, 37, 37, 0.12);
+      overflow: hidden;
+
+      table {
+        th {
+          font-weight: bold;
+          border: none;
+          text-transform: uppercase;
+          font-family: 'Cairo', sans-serif;
+          font-size: 14px;
+          background-color: white;
+          color: map-get($colors, "primary");
+        }
+
+        tr td {
+          cursor: pointer;
+          margin-block: 20px;
+          height: 70px;
+          border: none;
+          background-color: white;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .add {
+    width: 230px;
+    height: 50px;
+    border-radius: 5px;
+    place-self: end;
+    color: white;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+}
